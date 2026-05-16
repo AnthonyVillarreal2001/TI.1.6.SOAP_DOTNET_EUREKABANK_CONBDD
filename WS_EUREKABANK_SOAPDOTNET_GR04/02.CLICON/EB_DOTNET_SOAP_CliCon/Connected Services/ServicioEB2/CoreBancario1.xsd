@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:eurekabank" elementFormDefault="qualified" targetNamespace="urn:eurekabank" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://localhost:7299/CoreBancario.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WS_EB_DOTNET_SOAP.Models" />
+  <xs:element name="ValidarIngreso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarIngresoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarIngresoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerMovimientos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cuenta" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerMovimientosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WS_EB_DOTNET_SOAP.Models" minOccurs="0" name="TraerMovimientosResult" nillable="true" type="q1:ArrayOfMovimiento" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegDeposito">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cuenta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="importe" type="xs:decimal" />
+        <xs:element minOccurs="0" name="empleado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegDepositoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WS_EB_DOTNET_SOAP.Models" minOccurs="0" name="RegDepositoResult" nillable="true" type="q2:OperacionCuentaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegRetiro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cuenta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="importe" type="xs:decimal" />
+        <xs:element minOccurs="0" name="empleado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegRetiroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WS_EB_DOTNET_SOAP.Models" minOccurs="0" name="RegRetiroResult" nillable="true" type="q3:OperacionCuentaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegTransferencia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cuentaOrigen" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cuentaDestino" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="importe" type="xs:decimal" />
+        <xs:element minOccurs="0" name="empleado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegTransferenciaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WS_EB_DOTNET_SOAP.Models" minOccurs="0" name="RegTransferenciaResult" nillable="true" type="q4:OperacionCuentaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

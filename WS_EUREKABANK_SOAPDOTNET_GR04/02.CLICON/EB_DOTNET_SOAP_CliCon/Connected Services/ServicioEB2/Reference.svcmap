@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="0ea9d5a8-02ef-40ca-ad69-eb55bdbd70f4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://localhost:7299/CoreBancario.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CoreBancario.xsd" MetadataType="Schema" ID="294e2764-a5c8-4e56-b096-5461ffb8dbde" SourceId="1" SourceUrl="https://localhost:7299/CoreBancario.svc?xsd=xsd2" />
+    <MetadataFile FileName="CoreBancarioSoap.wsdl" MetadataType="Wsdl" ID="8e796e41-0ef9-4664-b4ca-5202d8b74fab" SourceId="1" SourceUrl="https://localhost:7299/CoreBancario.svc?wsdl" />
+    <MetadataFile FileName="CoreBancario1.xsd" MetadataType="Schema" ID="a871ddd1-5f22-40f4-9871-c41b532cb975" SourceId="1" SourceUrl="https://localhost:7299/CoreBancario.svc?xsd=xsd0" />
+    <MetadataFile FileName="CoreBancario2.xsd" MetadataType="Schema" ID="62908bbb-3a36-4e65-ad9c-c21610d0ba4b" SourceId="1" SourceUrl="https://localhost:7299/CoreBancario.svc?xsd=xsd1" />
+    <MetadataFile FileName="CoreBancario.wsdl" MetadataType="Wsdl" ID="a9688dd2-3544-4188-91e7-70aa6441154a" SourceId="1" SourceUrl="https://localhost:7299/CoreBancario.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

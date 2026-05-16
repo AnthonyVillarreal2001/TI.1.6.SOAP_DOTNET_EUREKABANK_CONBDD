@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:eurekabank" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" targetNamespace="urn:eurekabank" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:eurekabank/Imports">
+      <xsd:import schemaLocation="https://localhost:7299/CoreBancario.svc?xsd=xsd0" namespace="urn:eurekabank" />
+      <xsd:import schemaLocation="https://localhost:7299/CoreBancario.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://localhost:7299/CoreBancario.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WS_EB_DOTNET_SOAP.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CoreBancarioSoap_ValidarIngreso_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarIngreso" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_ValidarIngreso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarIngresoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_TraerMovimientos_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraerMovimientos" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_TraerMovimientos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraerMovimientosResponse" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_RegDeposito_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegDeposito" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_RegDeposito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegDepositoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_RegRetiro_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegRetiro" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_RegRetiro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegRetiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_RegTransferencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegTransferencia" />
+  </wsdl:message>
+  <wsdl:message name="CoreBancarioSoap_RegTransferencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegTransferenciaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CoreBancarioSoap">
+    <wsdl:operation name="ValidarIngreso">
+      <wsdl:input wsaw:Action="urn:eurekabank/CoreBancarioSoap/ValidarIngreso" message="tns:CoreBancarioSoap_ValidarIngreso_InputMessage" />
+      <wsdl:output wsaw:Action="urn:eurekabank/CoreBancarioSoap/ValidarIngresoResponse" message="tns:CoreBancarioSoap_ValidarIngreso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerMovimientos">
+      <wsdl:input wsaw:Action="urn:eurekabank/CoreBancarioSoap/TraerMovimientos" message="tns:CoreBancarioSoap_TraerMovimientos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:eurekabank/CoreBancarioSoap/TraerMovimientosResponse" message="tns:CoreBancarioSoap_TraerMovimientos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegDeposito">
+      <wsdl:input wsaw:Action="urn:eurekabank/CoreBancarioSoap/RegDeposito" message="tns:CoreBancarioSoap_RegDeposito_InputMessage" />
+      <wsdl:output wsaw:Action="urn:eurekabank/CoreBancarioSoap/RegDepositoResponse" message="tns:CoreBancarioSoap_RegDeposito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegRetiro">
+      <wsdl:input wsaw:Action="urn:eurekabank/CoreBancarioSoap/RegRetiro" message="tns:CoreBancarioSoap_RegRetiro_InputMessage" />
+      <wsdl:output wsaw:Action="urn:eurekabank/CoreBancarioSoap/RegRetiroResponse" message="tns:CoreBancarioSoap_RegRetiro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegTransferencia">
+      <wsdl:input wsaw:Action="urn:eurekabank/CoreBancarioSoap/RegTransferencia" message="tns:CoreBancarioSoap_RegTransferencia_InputMessage" />
+      <wsdl:output wsaw:Action="urn:eurekabank/CoreBancarioSoap/RegTransferenciaResponse" message="tns:CoreBancarioSoap_RegTransferencia_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
