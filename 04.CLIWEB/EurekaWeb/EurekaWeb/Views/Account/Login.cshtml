@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+    var error = ViewBag.Error as string;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>EurekaBank · Acceso Seguro</title>
+    <link rel="stylesheet" href="~/css/bank-theme.css" />
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+
+    <div class="modern-modal" style="position: relative; background: transparent; backdrop-filter: none;">
+        <div class="modal-content" style="max-width: 450px; padding: 2.5rem;">
+            <div class="logo-area" style="justify-content: center; margin-bottom: 1.5rem;">
+                <img src="~/img/logo-ldu.png" alt="Logo" class="logo-img" />
+                <h1 style="font-size: 1.8rem;">EurekaBank</h1>
+            </div>
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Iniciar Sesión</h2>
+
+            <form asp-action="Login" asp-controller="Account" method="post">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" name="usuario" class="input-modern" placeholder="MONSTER" required autofocus />
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" class="input-modern" placeholder="••••••••" required />
+                </div>
+                <button type="submit" class="btn-modern">Ingresar</button>
+            </form>
+
+            @if (!string.IsNullOrEmpty(error))
+            {
+                <div style="margin-top: 1.5rem; background: rgba(231,76,60,0.1); border-left: 4px solid var(--error); padding: 0.8rem; border-radius: 12px; color: var(--error); font-size: 0.9rem;">
+                    @error
+                </div>
+            }
+
+            <div style="margin-top: 2rem; font-size: 0.75rem; color: #aaa; text-align: center;">
+                Sistema Bancario Seguro · v2.0
+            </div>
+        </div>
+    </div>
+</body>
+</html>

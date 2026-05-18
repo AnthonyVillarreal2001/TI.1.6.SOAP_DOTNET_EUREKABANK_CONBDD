@@ -1,0 +1,441 @@
+﻿/* bank-theme.css - Diseño bancario moderno y responsive */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+:root {
+    --primary: #0a3d62;
+    --primary-dark: #0c2d48;
+    --secondary: #e67e22;
+    --secondary-light: #f39c12;
+    --accent: #00a8ff;
+    --success: #2ecc71;
+    --error: #e74c3c;
+    --light-bg: #f8f9fa;
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: url('/img/sullivan.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+    /* Overlay oscuro para mejorar legibilidad */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55); /* Ajusta la opacidad si quieres más o menos oscuridad */
+        backdrop-filter: blur(2px); /* Opcional: un ligero difuminado */
+        z-index: 0;
+    }
+
+/* Asegura que todo el contenido quede por encima del overlay */
+.bank-header, .main-container, .modern-modal {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header moderno */
+.bank-header {
+    background: rgba(10, 61, 66, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.bank-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff, #e0e0e0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.user-badge {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    padding: 8px 18px;
+    border-radius: 40px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-logout {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 20px;
+    border-radius: 40px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    font-size: 0.85rem;
+}
+
+    .btn-logout:hover {
+        background: var(--error);
+        border-color: var(--error);
+        transform: translateY(-2px);
+    }
+
+/* Contenedor principal */
+.main-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Tarjetas de operaciones (menú) */
+.operations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 1rem;
+}
+
+.operation-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(2px);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid var(--glass-border);
+}
+
+    .operation-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+        border-color: rgba(230, 126, 34, 0.5);
+    }
+
+.card-icon {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 2rem;
+    text-align: center;
+}
+
+    .card-icon svg {
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    }
+
+.card-title {
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-form {
+    padding: 0 1.2rem 1.5rem 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.operation-card.active .card-form {
+    max-height: 350px;
+    padding: 1.2rem;
+}
+
+/* Formularios elegantes */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+    .form-group label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.3px;
+    }
+
+.input-modern {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    background: white;
+}
+
+    .input-modern:focus {
+        outline: none;
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+    }
+
+.btn-modern {
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+    border: none;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+    .btn-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+    }
+
+/* Modal de resultado */
+.modern-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-content {
+    background: white;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 40px;
+    padding: 2rem;
+    text-align: center;
+    animation: slideUp 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1rem;
+}
+
+    .result-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Tabla de movimientos */
+.table-responsive {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: var(--radius-md);
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.movements-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+    .movements-table th {
+        background: var(--primary);
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .movements-table td {
+        padding: 0.9rem;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+.tr-ingreso {
+    background: rgba(46, 204, 113, 0.05);
+}
+
+.tr-salida {
+    background: rgba(231, 76, 60, 0.05);
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-deposito {
+    background: var(--success);
+    color: white;
+}
+
+.badge-retiro {
+    background: var(--error);
+    color: white;
+}
+
+.badge-transferencia {
+    background: var(--accent);
+    color: white;
+}
+
+.importe-ingreso {
+    color: var(--success);
+    font-weight: 700;
+}
+
+.importe-salida {
+    color: var(--error);
+    font-weight: 700;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+}
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-avatar span {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bank-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-container {
+        padding: 0 1rem;
+    }
+
+    .operations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .movements-table th, .movements-table td {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+}

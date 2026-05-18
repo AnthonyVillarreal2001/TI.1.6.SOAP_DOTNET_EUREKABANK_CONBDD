@@ -1,0 +1,16 @@
+{
+  "ExtendedData": {
+    "inputs": [
+      "https://localhost:7299/CoreBancario.svc"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, ServicioEB2"
+    ],
+    "targetFramework": "net8.0-windows",
+    "typeReuseMode": "All"
+  }
+}

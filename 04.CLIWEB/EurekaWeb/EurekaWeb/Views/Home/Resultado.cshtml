@@ -1,0 +1,77 @@
+﻿@model EurekaWeb.Models.ResultadoVm
+@{
+    Layout = null;
+    bool esExitoso = Model.EsExitoso;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Resultado · EurekaBank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/bank-theme.css" />
+</head>
+<body>
+
+    <div class="modern-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="location.href='@Url.Action("Menu", "Home")'">✕</button>
+
+            <div class="result-icon">
+                @if (esExitoso)
+                {
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" fill="#2ecc71" />
+                        <path d="M8 12.5L11 15.5L16 9" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+                    </svg>
+                }
+                else
+                {
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" fill="#e74c3c" />
+                        <path d="M8 8L16 16M16 8L8 16" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+                    </svg>
+                }
+            </div>
+
+            <h2 style="color: @(esExitoso ? "#2ecc71" : "#e74c3c"); margin-bottom: 1rem;">@(esExitoso ? "¡Operación exitosa!" : "Error")</h2>
+            <div style="margin-bottom: 1.5rem;">@Model.Mensaje</div>
+
+            @if (esExitoso && Model.Saldo.HasValue && !string.IsNullOrEmpty(Model.Cuenta))
+            {
+                <div style="background: #f0f9ff; border-radius: 20px; padding: 1rem;">
+                    <strong>Cuenta @Model.Cuenta</strong><br />
+                    Nuevo saldo: <span style="font-size: 1.4rem; font-weight: 700; color: var(--success);">$ @Model.Saldo.Value.ToString("N2")</span>
+                </div>
+            }
+
+            <a asp-controller="Home" asp-action="Menu" class="btn-modern" style="display: inline-block; margin-top: 1.5rem; text-decoration: none;">Volver al inicio</a>
+        </div>
+    </div>
+
+    @if (esExitoso)
+    {
+        <script>
+                (function() {
+                    for(let i=0;i<40;i++) {
+                        let conf = document.createElement('div');
+                        conf.style.position = 'fixed';
+                        conf.style.width = '8px';
+                        conf.style.height = '8px';
+                        conf.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
+                        conf.style.left = Math.random() * 100 + '%';
+                        conf.style.top = '-10px';
+                        conf.style.borderRadius = '50%';
+                        conf.style.pointerEvents = 'none';
+                        conf.style.animation = `fall ${Math.random() * 2 + 2}s linear forwards`;
+                        document.body.appendChild(conf);
+                        setTimeout(() => conf.remove(), 4000);
+                    }
+                    const style = document.createElement('style');
+                    style.textContent = `@@keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }`;
+                    document.head.appendChild(style);
+                })();
+        </script>
+    }
+</body>
+</html>

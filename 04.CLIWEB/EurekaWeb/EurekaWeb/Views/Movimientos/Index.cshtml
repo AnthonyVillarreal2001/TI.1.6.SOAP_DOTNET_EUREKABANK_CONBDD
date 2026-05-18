@@ -1,0 +1,64 @@
+﻿@model EurekaWeb.Models.MovimientosVm
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Movimientos · EurekaBank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/bank-theme.css" />
+</head>
+<body>
+
+    <div class="bank-header">
+        <div class="logo-area">
+            <img src="~/img/logo-ldu.png" class="logo-img" alt="Logo" />
+            <h1>EurekaBank</h1>
+        </div>
+        <a asp-controller="Home" asp-action="Menu" class="btn-logout" style="background: var(--secondary); border: none;">
+            ← Volver al Menú
+        </a>
+    </div>
+
+    <div class="main-container">
+        <div style="background: white; border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm);">
+            <h2 style="color: var(--primary); margin-bottom: 0.5rem;">Movimientos de la cuenta</h2>
+            <div style="font-size: 1.2rem; background: #f0f0f0; display: inline-block; padding: 0.3rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;">
+                📁 @Model.Cuenta
+            </div>
+
+            @if (Model.Movs == null || Model.Movs.Count == 0)
+            {
+                <div class="empty-state">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1"><path d="M3 6h18M9 12h6M12 12v6" /><rect x="3" y="3" width="18" height="18" rx="2" /></svg>
+                    <p>No hay movimientos registrados para esta cuenta.</p>
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="movements-table">
+                        <thead>
+                            <tr><th>Nro</th><th>Fecha</th><th>Tipo</th><th>Acción</th><th>Importe (USD)</th></tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model.Movs)
+                            {
+                                <tr class="@m.RowClass">
+                                    <td>@m.Numero</td>
+                                    <td>@m.Fecha</td>
+                                    <td><span class="badge @m.BadgeClass">@m.Tipo</span></td>
+                                    <td>@m.Accion</td>
+                                    <td class="@m.ImporteClass">$ @m.Importe</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
