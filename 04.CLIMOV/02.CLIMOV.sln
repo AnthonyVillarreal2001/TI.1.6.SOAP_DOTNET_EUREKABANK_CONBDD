@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11806.211
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CLIMOV", "02.CLIMOV\02.CLIMOV.csproj", "{ED628AC6-7BB9-491B-971B-D44A18DFD1C7}"
 EndProject
@@ -13,6 +13,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ED628AC6-7BB9-491B-971B-D44A18DFD1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ED628AC6-7BB9-491B-971B-D44A18DFD1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED628AC6-7BB9-491B-971B-D44A18DFD1C7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{ED628AC6-7BB9-491B-971B-D44A18DFD1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED628AC6-7BB9-491B-971B-D44A18DFD1C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

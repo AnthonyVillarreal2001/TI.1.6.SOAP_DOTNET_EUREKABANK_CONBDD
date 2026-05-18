@@ -20,7 +20,7 @@ namespace _02.CLIMOV.Servicio
             // ===================================
             
             // 📱 Servidor HTTPS según WSDL
-            _endpointUrl = "https://192.168.18.134:7299/CoreBancario.svc";
+            _endpointUrl = "https://10.40.19.95:7299/CoreBancario.svc";
             
             // ALTERNATIVA HTTP (sin SSL):
             // _endpointUrl = "http://localhost:5070/soap/CoreBancario.svc";
